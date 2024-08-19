@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "djfmt"
+version = "0.1.0"
+description = "A fast django template formatter"
+authors = ["Ephraim Schnitzler <eschnitzler@dynamichcsolutions.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+tree-sitter = "0.21.1"
+
+
+[tool.poetry.group.dev.dependencies]
+tree-sitter-languages = "^1.10.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

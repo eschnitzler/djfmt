@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Template</title>
+        <style>
+        /* CSS comment */
+        .example { color: red; }
+        </style>
+        <script>
+        // JavaScript comment
+        function example() {
+            console.log("Example");
+        }
+        </script>
+    </head>
+    <body>
+        <h1>Testing Django Template Formatter</h1>
+        {% if user.is_authenticated %}
+            <p>Welcome, {{ user.username }}!</p>
+        {% else %}
+            <p>Please log in.</p>
+        {% endif %}
+        <ul>
+            {% for item in items %}
+                <li>{{ item.name }}</li>
+            {% empty %}
+                <li>No items available.</li>
+            {% endfor %}
+        </ul>
+        <!-- HTML comment -->
+        <div class="content">
+            {% load static %}
+            <img src="{% static 'images/example.png' %}" alt="Example Image">
+            <a href="{% url 'homepage' %}">Home</a>
+            {% if user.is_staff %}<p>Admin Area</p>{% endif %}
+            <p>Today's date: {{ current_date }}</p>
+        </div>
+        <!-- Edge cases -->
+        <div {% if user.is_authenticated %} class="authenticated" {% else %} class="guest" {% endif %}>
+            <p>Dynamic content based on authentication status.</p>
+        </div>
+        <div>
+            {% if user.is_authenticated %}
+                {% if user.profile.show_special_offer %}<p>Special offer just for you!</p>{% endif %}
+            {% endif %}
+        </div>
+        <script>
+        // Inline script with DTL variables
+        const userName = "{{ user.username }}";
+        console.log(`User: ${userName}`);
+        </script>
+    </body>
+</html>
